@@ -1,7 +1,7 @@
 <?php
 /**
 * @file
-* Upload a file to CJC AWS S3 bucket
+* Upload a backup archive / file to AWS S3 bucket
 */
 require dirname(__FILE__).'/aws-autoloader.php';
 use Aws\S3\S3Client;
@@ -14,7 +14,7 @@ $config = array (
   'secret' => 'ENTER-AWS-SECRET-HERE', 
   'region' => "ap-southeast-2", 
   'local-folder' => '/home/bitnami/apps/logs/backup/',
-  'backup-age' => '7 days'
+  'backup-age' => '7 days' //defining generated file purge timeframe (delete in local env. only, not S3)
 );
 
 
