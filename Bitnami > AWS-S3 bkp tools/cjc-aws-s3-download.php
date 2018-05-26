@@ -1,7 +1,7 @@
 <?php
 /**
 * @file
-* Download a file from CJC AWS S3 bucket
+* This script will download an archive / file from AWS S3 bucket
 */
 error_reporting(0);
 require dirname(__FILE__).'/aws-autoloader.php';
@@ -15,7 +15,7 @@ $config = array (
   'secret' => 'ENTER-AWS-SECRET-HERE', 
   'region' => "ap-southeast-2", 
   'local-folder' => '/home/bitnami/apps/logs/backup/',
-  'local-env' => 'stage2', 
+  'local-env' => 'stage2', //generated backup filename will this label    
   'backup-type' => 'db',
   'backup-file-ext' => 'sql'
 );
@@ -85,5 +85,5 @@ try {
 
 } catch (S3Exception $e) {
     //echo $e->getMessage() . "\n";
-    echo "Error in downloading the file ($keyname) : File may not exists in S3 Bucket\n";
+    echo "Error in downloading file ($keyname) : File may not exist in S3 Bucket\n";
 }
